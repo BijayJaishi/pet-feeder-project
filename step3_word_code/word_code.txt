@@ -1,0 +1,24 @@
+// Start the system
+Start System
+Check current time
+// If it's feeding time (8AM or 6PM), proceed with feeding logic
+IF time == 8AM OR 6PM THEN
+    Check food level
+// If food is available, dispense it
+    IF food level == ‘OK’ THEN
+        Rotate servo motor to dispense food
+        // Wait for 30 minutes to allow pet to eat
+        Wait 30 minutes
+        Check bowl weight
+        // If bowl weight hasn't changed, pet hasn't eaten
+        IF bowl weight unchanged THEN
+            Send alert: "Pet has not eaten"
+        ELSE
+           "Feeding successful"
+    ELSE
+        // If food is not available, send an alert
+        Send alert: "Food bin empty"
+ELSE
+    // If it's not feeding time, wait until the next scheduled time
+    Wait until next scheduled time
+Repeat
